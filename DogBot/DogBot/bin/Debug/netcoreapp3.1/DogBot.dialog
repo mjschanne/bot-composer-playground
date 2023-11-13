@@ -57,15 +57,17 @@
         {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
-            "id": "kMjqz1",
-            "comment": "It is recommended to show a message to the user when the bot does not know how to handle an incoming activity and provide follow up options or a help message."
+            "id": "aahSir"
           },
-          "activity": "${SendActivity_DidNotUnderstand()}"
+          "activity": "${SendActivity_aahSir()}"
         }
       ]
     }
   ],
   "generator": "DogBot.lg",
   "id": "DogBot",
-  "recognizer": "DogBot.lu.qna"
+  "recognizer": {
+    "$kind": "Microsoft.RegexRecognizer",
+    "intents": []
+  }
 }

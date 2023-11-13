@@ -8,9 +8,6 @@ C:\Projects\bot-composer-playground\DogBot\DogBot\bin\Debug\netcoreapp3.1\script
 C:\Projects\bot-composer-playground\DogBot\DogBot\bin\Debug\netcoreapp3.1\scripts\package.json
 C:\Projects\bot-composer-playground\DogBot\DogBot\bin\Debug\netcoreapp3.1\settings\appsettings.json
 C:\Projects\bot-composer-playground\DogBot\DogBot\bin\Debug\netcoreapp3.1\DogBot.dialog
-C:\Projects\bot-composer-playground\DogBot\DogBot\bin\Debug\netcoreapp3.1\recognizers\DogBot.en-us.lu.dialog
-C:\Projects\bot-composer-playground\DogBot\DogBot\bin\Debug\netcoreapp3.1\recognizers\DogBot.lu.dialog
-C:\Projects\bot-composer-playground\DogBot\DogBot\bin\Debug\netcoreapp3.1\recognizers\DogBot.lu.qna.dialog
 C:\Projects\bot-composer-playground\DogBot\DogBot\bin\Debug\netcoreapp3.1\language-generation\en-us\common.en-us.lg
 C:\Projects\bot-composer-playground\DogBot\DogBot\bin\Debug\netcoreapp3.1\language-generation\en-us\DogBot.en-us.lg
 C:\Projects\bot-composer-playground\DogBot\DogBot\bin\Debug\netcoreapp3.1\language-understanding\en-us\DogBot.en-us.lu
@@ -154,3 +151,4 @@ C:\Projects\bot-composer-playground\DogBot\DogBot\bin\Debug\netcoreapp3.1\runtim
 C:\Projects\bot-composer-playground\DogBot\DogBot\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 C:\Projects\bot-composer-playground\DogBot\DogBot\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\System.Windows.Extensions.dll
 C:\Projects\bot-composer-playground\DogBot\DogBot\bin\Debug\netcoreapp3.1\Microsoft.Bot.Components.Recognizers.CLURecognizer.dll
+C:\Projects\bot-composer-playground\DogBot\DogBot\obj\Debug\netcoreapp3.1\DogBot.sourcelink.json
