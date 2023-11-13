@@ -396,3 +396,29 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+DogBot/.vs/DogBot/DesignTimeBuild/.dtbcache.v2
+DogBot/.vs/DogBot/FileContentIndex/f8522726-d00a-4be3-b177-b6fc7bf02d33.vsidx
+DogBot/.vs/DogBot/v17/.suo
+DogBot/DogBot/obj/DogBot.csproj.nuget.dgspec.json
+DogBot/DogBot/obj/DogBot.csproj.nuget.g.props
+DogBot/DogBot/obj/project.assets.json
+DogBot/DogBot/obj/project.nuget.cache
+DogBot/DogBot/obj/Debug/netcoreapp3.1/apphost.exe
+DogBot/DogBot/obj/Debug/netcoreapp3.1/DogBot.csproj.CoreCompileInputs.cache
+DogBot/DogBot/obj/Debug/netcoreapp3.1/DogBot.csproj.FileListAbsolute.txt
+DogBot/DogBot/obj/Debug/netcoreapp3.1/DogBot.dll
+DogBot/DogBot/obj/Debug/netcoreapp3.1/DogBot.genruntimeconfig.cache
+DogBot/DogBot/obj/Debug/netcoreapp3.1/DogBot.MvcApplicationPartsAssemblyInfo.cs
+DogBot/DogBot/obj/Debug/netcoreapp3.1/DogBot.pdb
+DogBot/DogBot/obj/Debug/netcoreapp3.1/DogBot.RazorTargetAssemblyInfo.cache
+DogBot/DogBot/obj/Debug/netcoreapp3.1/staticwebassets/DogBot.StaticWebAssets.Pack.cache
+DogBot/DogBot/obj/Debug/netcoreapp3.1/staticwebassets/msbuild.DogBot.Microsoft.AspNetCore.StaticWebAssets.props
+DogBot/DogBot/bin/Debug/netcoreapp3.1/DogBot.dialog
+DogBot/DogBot/bin/Debug/netcoreapp3.1/DogBot.dll
+DogBot/DogBot/bin/Debug/netcoreapp3.1/DogBot.exe
+DogBot/DogBot/bin/Debug/netcoreapp3.1/DogBot.pdb
+DogBot/DogBot/bin/Debug/netcoreapp3.1/language-generation/en-us/DogBot.en-us.lg
+DogBot/DogBot/bin/Debug/netcoreapp3.1/recognizers/DogBot.en-us.lu.dialog
+DogBot/DogBot/bin/Debug/netcoreapp3.1/recognizers/DogBot.lu.dialog
+DogBot/DogBot/bin/Debug/netcoreapp3.1/recognizers/DogBot.lu.qna.dialog
+DogBot/DogBot/bin/Debug/netcoreapp3.1/settings/appsettings.json
