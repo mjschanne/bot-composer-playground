@@ -8,10 +8,10 @@
 # SendActivity_Greeting_text()
 - Welcome to your bot.
 
-# SendActivity_DidNotUnderstand()
+# SendActivity_aahSir()
 [Activity
-    Text = ${SendActivity_DidNotUnderstand_text()}
+    Text = ${SendActivity_aahSir_text()}
 ]
 
-# SendActivity_DidNotUnderstand_text()
-- Sorry, I didn't get that.
+# SendActivity_aahSir_text()
+- ${turn.activity.text}
