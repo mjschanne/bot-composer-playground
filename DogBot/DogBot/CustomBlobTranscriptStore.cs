@@ -1,4 +1,6 @@
 ﻿using Azure;
+using Azure.Core;
+using Azure.Core.Diagnostics;
 using Azure.Identity;
 using Azure.Storage;
 using Azure.Storage.Blobs;
@@ -69,7 +71,15 @@ namespace DogBot
             _containerClient = new Lazy<BlobContainerClient>(
                 () =>
                 {
-                    var tokenCredential = new DefaultAzureCredential();
+                    var options = new DefaultAzureCredentialOptions();
+                    
+                    /// Uncomment the following lines to enable logging
+                    //options.Diagnostics.IsLoggingEnabled = true;
+                    //options.Diagnostics.IsAccountIdentifierLoggingEnabled = true;
+                    //options.Diagnostics.IsLoggingContentEnabled = true;
+                    //var listener = AzureEventSourceListener.CreateTraceLogger();
+
+                    var tokenCredential = new DefaultAzureCredential(options);
                     var containerClient = new BlobContainerClient(new Uri(blobContainerUri), tokenCredential, blobClientOptions);
 
                     if (!_checkedContainers.Contains(containerName))

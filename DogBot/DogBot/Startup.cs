@@ -27,7 +27,7 @@ namespace DogBot
             });
             services.AddBotRuntime(Configuration);
 
-            var blobContainerUri = Configuration.GetValue<string>("BlobContainerUri");
+            var blobContainerUri = Configuration.GetValue<string>("runtimeSettings:BlobContainerUri");
 
             // use customer version of ITranscriptStore - can basic copy BlobTranscriptStore and change the constructor to create container with DefaultAzureCredential (or whatever auth you want)
             var transcriptStore = new CustomBlobTranscriptStore(blobContainerUri);
