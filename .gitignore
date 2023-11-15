@@ -117,3 +117,4 @@
 /DogBot/StorageAccountAccessTest/obj/StorageAccountAccessTest.csproj.nuget.dgspec.json
 /DogBot/StorageAccountAccessTest/obj/StorageAccountAccessTest.csproj.nuget.g.props
 /DogBot/StorageAccountAccessTest/obj/StorageAccountAccessTest.csproj.nuget.g.targets
+*.wsuo
