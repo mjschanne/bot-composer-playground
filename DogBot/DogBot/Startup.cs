@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Dialogs.Adaptive.Runtime.Extensions;
 using Microsoft.Bot.Builder.Integration.AspNet.Core;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +26,14 @@ namespace DogBot
                 options.SerializerSettings.MaxDepth = HttpHelper.BotMessageSerializerSettings.MaxDepth;
             });
             services.AddBotRuntime(Configuration);
+
+            var blobContainerUri = Configuration.GetValue<string>("BlobContainerUri");
+
+            // use customer version of ITranscriptStore - can basic copy BlobTranscriptStore and change the constructor to create container with DefaultAzureCredential (or whatever auth you want)
+            var transcriptStore = new CustomBlobTranscriptStore(blobContainerUri);
+
+            // important!! this does not replace what is in AddBotRuntime, so you're better using a different AppSetting section so you can still use AddBotRuntime without triggering errors due to expecting a connectionString
+            services.AddSingleton<IMiddleware>(sp => new TranscriptLoggerMiddleware(transcriptStore));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "StorageAccountAccessTest": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "AZURE_USERNAME": "mjschanne"
+      }
+    }
+  }
+}
