@@ -118,3 +118,7 @@
 /DogBot/StorageAccountAccessTest/obj/StorageAccountAccessTest.csproj.nuget.g.props
 /DogBot/StorageAccountAccessTest/obj/StorageAccountAccessTest.csproj.nuget.g.targets
 *.wsuo
+/azure-bot-clearstep-integration/obj
+/azure-bot-clearstep-integration/bin/Debug/net6.0
+/azure-bot-clearstep-integration/.vs/Custom-Dialogs
+/DogBot/.vscode/settings.json
