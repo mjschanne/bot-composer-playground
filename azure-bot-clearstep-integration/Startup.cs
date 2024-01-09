@@ -47,16 +47,14 @@ namespace Microsoft.BotBuilderSamples
             // Create the Conversation state. (Used by the Dialog system itself.)
             services.AddSingleton<ConversationState>();
 
-            // The Dialog that will be run by the bot.
-            services.AddSingleton<RootDialog>();
-
             // Create the bot as a transient. In this case the ASP Controller is expecting an IBot.
-            //services.AddTransient<IBot, DialogBot<RootDialog>>();
             services.AddTransient<IBot, CustomPromptBot>();
 
             var baseUrl = Configuration.GetValue<string>("ClearStep:BaseUrl");
             var apiKey = Configuration.GetValue<string>("ClearStep:ApiKey");
 
+
+            services.AddSingleton<AdaptiveCardFactory>();
             services.AddHttpClient<ClearStepTriageService>(client =>
             {
                 client.BaseAddress = new Uri(baseUrl);

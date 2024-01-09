@@ -466,7 +466,7 @@ namespace DogBot
                 await blobClient.UploadAsync(memoryStream, options).ConfigureAwait(false);
             }
             catch (RequestFailedException ex)
-                    when ((HttpStatusCode)ex.Status == HttpStatusCode.Conflict)
+                    // when ((HttpStatusCode)ex.Status == HttpStatusCode.Conflict)
             {
                 // ignore the conflict led by transient error when uploading
                 if (overwrite || await blobClient.ExistsAsync().ConfigureAwait(false) == false)
