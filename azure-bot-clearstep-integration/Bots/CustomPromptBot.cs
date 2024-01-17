@@ -16,12 +16,18 @@ public class CustomPromptBot : ActivityHandler
     private readonly AdaptiveCardFactory _adaptiveCardFactory;
     private readonly BotState _conversationState;
     private readonly ClearStepTriageService _clearStepTriageService;
+    private readonly OpenAiService _openAiService;
 
-    public CustomPromptBot(AdaptiveCardFactory adaptiveCardFactory, ConversationState conversationState, ClearStepTriageService clearStepTriageService)
+    public CustomPromptBot(
+        AdaptiveCardFactory adaptiveCardFactory,
+        ConversationState conversationState,
+        ClearStepTriageService clearStepTriageService,
+        OpenAiService openAiService)
     {
         _adaptiveCardFactory = adaptiveCardFactory;
         _conversationState = conversationState;
         _clearStepTriageService = clearStepTriageService;
+        _openAiService = openAiService;
     }
 
     protected override async Task OnMessageActivityAsync(ITurnContext<IMessageActivity> turnContext, CancellationToken cancellationToken)
@@ -29,7 +35,19 @@ public class CustomPromptBot : ActivityHandler
         var stateAccessor = _conversationState.CreateProperty<CustomPromptBotState>("state");
         var state = await stateAccessor.GetAsync(turnContext, () => new CustomPromptBotState(), cancellationToken);
 
-        await AskQuestionAsync(state, turnContext, cancellationToken);
+
+        var isTriageRelated = await _openAiService.IsTriageAsync(turnContext.Activity.Text);
+
+        if (isTriageRelated)
+        {
+            await AskQuestionAsync(state, turnContext, cancellationToken);
+        }
+        else
+        {
+            var response = await _openAiService.GetGeneralResponseAsync(turnContext.Activity.Text);
+
+            await turnContext.SendActivityAsync(MessageFactory.Text(response, response), cancellationToken);
+        }
 
         // Save changes.
         await _conversationState.SaveChangesAsync(turnContext, false, cancellationToken);
@@ -118,6 +136,24 @@ public class CustomPromptBot : ActivityHandler
             var card = _adaptiveCardFactory.CreateCombinationCard(state.Step.Question.Text, dict);
 
             await turnContext.SendActivityAsync(MessageFactory.Attachment(card), cancellationToken);
+        }
+    }
+
+    protected override async Task OnMembersAddedAsync(IList<ChannelAccount> membersAdded, ITurnContext<IConversationUpdateActivity> turnContext, CancellationToken cancellationToken)
+    {
+        var welcomeText = """
+Hello and welcome! I am a friendly Azure Bot configured to use ClearStep's triage engine to assist with symptom checking. 
+I will use Azure Open AI to assist with any other types of requests. 
+
+How can I help?
+""";
+
+        foreach (var member in membersAdded)
+        {
+            if (member.Id != turnContext.Activity.Recipient.Id)
+            {
+                await turnContext.SendActivityAsync(MessageFactory.Text(welcomeText, welcomeText), cancellationToken);
+            }
         }
     }
 }

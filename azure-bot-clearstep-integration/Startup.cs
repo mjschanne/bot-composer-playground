@@ -50,15 +50,24 @@ namespace Microsoft.BotBuilderSamples
             // Create the bot as a transient. In this case the ASP Controller is expecting an IBot.
             services.AddTransient<IBot, CustomPromptBot>();
 
-            var baseUrl = Configuration.GetValue<string>("ClearStep:BaseUrl");
-            var apiKey = Configuration.GetValue<string>("ClearStep:ApiKey");
+            var clearStepBaseUrl = Configuration.GetValue<string>("ClearStep:BaseUrl");
+            var clearStepApiKey = Configuration.GetValue<string>("ClearStep:ApiKey");
 
 
             services.AddSingleton<AdaptiveCardFactory>();
             services.AddHttpClient<ClearStepTriageService>(client =>
             {
-                client.BaseAddress = new Uri(baseUrl);
-                client.DefaultRequestHeaders.Add("x-api-key", apiKey);
+                client.BaseAddress = new Uri(clearStepBaseUrl);
+                client.DefaultRequestHeaders.Add("x-api-key", clearStepApiKey);
+            });
+
+            var openAiUri = Configuration.GetValue<string>("AzureOpenAI:BaseUrl");
+            var openAiDeployment = Configuration.GetValue<string>("AzureOpenAI:Deployment");
+            var tenantId = Configuration.GetValue<string>("AzureOpenAI:TenantId");
+
+            services.AddTransient(provider =>
+            {
+                return new OpenAiService(openAiUri, openAiDeployment, tenantId);
             });
         }
 

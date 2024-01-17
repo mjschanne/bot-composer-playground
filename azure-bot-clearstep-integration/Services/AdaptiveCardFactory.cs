@@ -44,25 +44,25 @@ public sealed class AdaptiveCardFactory
     /// <summary>
     /// Creates an adaptive card that contains a textbox only
     /// </summary>
-    public Microsoft.Bot.Schema.Attachment CreateTextCard()
-    {
-        var message = ConstantStrings.welcome_message;
+    //public Microsoft.Bot.Schema.Attachment CreateTextCard()
+    //{
+    //    var message = ConstantStrings.welcome_message;
 
-        AdaptiveCard card = new(defaultSchema)
-        {
-            Body = new List<AdaptiveElement>()
-                {
-                    new AdaptiveTextBlock()
-                    {
-                        Text = message,
-                        Size = AdaptiveTextSize.Default,
-                        Wrap = true
-                    }
-                }
-        };
+    //    AdaptiveCard card = new(defaultSchema)
+    //    {
+    //        Body = new List<AdaptiveElement>()
+    //            {
+    //                new AdaptiveTextBlock()
+    //                {
+    //                    Text = message,
+    //                    Size = AdaptiveTextSize.Default,
+    //                    Wrap = true
+    //                }
+    //            }
+    //    };
 
-        return CreateAdaptiveCardAttachment(card.ToJson());
-    }
+    //    return CreateAdaptiveCardAttachment(card.ToJson());
+    //}
 
     /// <summary>
     /// Creates an adaptive card that has both text and a submit action
